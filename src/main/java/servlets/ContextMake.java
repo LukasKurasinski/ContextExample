@@ -20,11 +20,16 @@ public class ContextMake extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/HTML");
         getServletContext().setAttribute("WelcomeMessage", "Hello! from my Servlet World!");
+        resp.getWriter().print("Go back to Context Grabber to see changes");
+        String form = "<form action=/contextGrabber method=GET><input type=submit value=Go To Context Grabber with GET></input></form>";
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        resp.setContentType("text/HTML");
+        String form = "<form action=/contextGrabber method=GET><input type=submit value=Go To Context Grabber with GET></input></form>";
+        resp.getWriter().print("Go back to Context Grabber to see changes");
     }
 }
